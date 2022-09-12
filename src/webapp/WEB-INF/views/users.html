@@ -23,15 +23,14 @@
         <td th:text="${usr.lastName}"></td>
         <td th:text="${usr.email}"></td>
         <td>
-<!--            <form th:method="GET" th:action="@{/users/{id}/delete(id=${usr.getId()})}" id="form_remove">-->
-<!--                <input type="submit" value="remove" form="form_remove"/>-->
-<!--            </form>-->
-<!--            <form th:method="GET" th:action="@{/users/{id}/edit(id=${usr.getId()})}" id="form_edit">-->
-<!--                <input type="submit" value="edit" form="form_edit"/>-->
-<!--            </form>-->
-            <a th:href="@{/users/{id}/delete(id = ${usr.getId()})}">remove</a>
-            <br/>
-            <a th:href="@{/users/{id}/edit(id = ${usr.getId()})}">edit</a>
+            <form th:method="GET" th:action="@{/users/{id}/edit(id=${usr.getId()})}">
+                <input type="submit" value="edit"/>
+            </form>
+        </td>
+        <td>
+            <form th:method="GET" th:action="@{/users/{id}/delete(id=${usr.getId()})}">
+                <input type="submit" value="remove"/>
+            </form>
         </td>
     </tr>
     </tbody>
@@ -39,7 +38,7 @@
 
 <br/>
 <hr/>
-<h2>Create user</h2>
+<h1>Create user</h1>
 <form th:method="POST" th:action="@{/users}" th:object="${user}" id="form_add">
     <label for="first_name">First Name :</label>
     <input type="text" th:field="*{firstName}" id="first_name"/>
@@ -52,6 +51,5 @@
     <br/>
     <input type="submit" value="Add user" form="form_add"/>
 </form>
-
 </body>
 </html>

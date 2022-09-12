@@ -18,13 +18,13 @@ public class UserController {
         this.service = service;
     }
 
-    @GetMapping()
+    @GetMapping
     public String printUsers(@ModelAttribute(value = "user") User user, ModelMap model) {
         model.addAttribute("users", service.getUsers());
         return "users";
     }
 
-    @PostMapping()
+    @PostMapping
     public String addUser(User user) {
         service.addUser(user);
         return "redirect:/users";
@@ -41,6 +41,7 @@ public class UserController {
         service.updateUser(user);
         return "redirect:/users";
     }
+
     @GetMapping(value = "/{id}/delete")
     public String deleteUser(@PathVariable(value = "id") long id, ModelMap model) {
         model.addAttribute("user", service.getUserById(id));
